@@ -1,16 +1,40 @@
+@import '../styles/colors';
+
 .container {
   display: flex;
   flex-direction: column;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
+  border-bottom: dotted 1px #ccc; /* px */
+  position: relative;
+
+  h1 {
+    font-size: 48px;
+  }
 }
 
 .content {
   flex: 1;
 }
 
-.nav {
-  display: flex;
+.footer {
   height: 100px;
+}
+
+.nav {
+  height: 100%;
   border-top: solid 1px rgba(0, 0, 0, .2); /* px */
+
+  ul {
+    width: 100%;
+    height: 100%;
+    display: flex;
+  }
 
   li {
     height: 100%;
@@ -27,11 +51,29 @@
     justify-content: center;
     align-items: center;
     height: 100%;
+    position: relative;
     color: #ccc;
+
+    &:after {
+      content: '';
+      width: 50%;
+      height: 14px; /* px */
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      background: $highlight-color;
+      transform: translate3d(-50%, 120%, 0) skewX(-15deg);
+      transition: all 0.4s ease;
+      opacity: 0;
+    }
   }
 
   a.active {
-    background: #f7f7f7;
     color: #444;
+    
+    &:after {
+      transform: translate3d(-50%, 80%, 0) skewX(-15deg);
+      opacity: .6;
+    }
   }
 }

@@ -1,0 +1,42 @@
+@import "../../styles/colors";
+
+.header {
+  padding: 20px;
+
+  h2 {
+    font-size: 40px;
+  }
+}
+
+.content {
+  padding: 25px;
+}
+
+.control {
+  display: flex;
+  padding: 15px;
+  border: solid 1px rgba(0, 0, 0, .5); /* px */
+
+  input {
+    width: 120px;
+    padding: 10px;
+    border: solid 1px rgba(0, 0, 0, .2); /* px */
+    border-radius: 10px; /* px */
+  }
+
+  button {
+    width: 100px;
+    margin: 0 5px;
+    border: solid 1px rgba(0, 0, 0, .4); /* px */
+    border-radius: 4px; /* px */
+    background: rgba(0, 0, 0, .2);
+  }
+
+  .amount {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $highlight-color;
+  }
+}

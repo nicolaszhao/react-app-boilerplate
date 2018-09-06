@@ -1,9 +1,9 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, NavLink, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect, NavLink, Switch } from 'react-router-dom';
 import { hot } from 'react-hot-loader';
 import cns from 'classnames';
 import { APP_BASE_URL } from 'config/base-url';
-import Home from './Home';
+import Counter from './Counter';
 import About from './About';
 import NoMatch from './NoMatch';
 import style from './app.scss';
@@ -22,12 +22,19 @@ const NavItem = ({ label, to, activeOnlyWhenExact }) => (
 
 const Container = () => (
   <div className={cns('container', style.container)}>
+    <header className={style.header}>
+      <h1>React Redux (Ultimate)</h1>
+    </header>
     <div className={style.content}>
       <Switch>
-        <Route
-          path="/"
-          component={Home}
+        <Redirect
+          from="/"
+          to="/counter"
           exact
+        />
+        <Route
+          path="/counter"
+          component={Counter}
         />
         <Route
           path="/about"
@@ -36,10 +43,14 @@ const Container = () => (
         <Route component={NoMatch} />
       </Switch>
     </div>
-    <ul className={style.nav}>
-      <NavItem to="/" label="Home" activeOnlyWhenExact />
-      <NavItem to="/about" label="About" />
-    </ul>
+    <footer className={style.footer}>
+      <nav className={style.nav}>
+        <ul>
+          <NavItem to="/counter" label="Counter" />
+          <NavItem to="/about" label="About" />
+        </ul>
+      </nav>
+    </footer>
   </div>
 );
 
