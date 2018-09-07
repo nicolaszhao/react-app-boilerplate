@@ -4,10 +4,10 @@ import 'styles/base.scss';
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import createStore from './store';
+import configureStore from './configureStore';
 import App from './app';
 
-const store = createStore();
+const store = configureStore();
 
 render(
   <Provider store={store}>

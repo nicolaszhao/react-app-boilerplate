@@ -13,7 +13,7 @@ class Counter extends Component {
   }
 
   handleAmountChange = ({ target }) => {
-    this.setState({ amount: target.value });
+    this.setState({ amount: +target.value });
   }
 
   render() {
