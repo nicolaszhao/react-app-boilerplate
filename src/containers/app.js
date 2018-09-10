@@ -4,7 +4,7 @@ import { hot } from 'react-hot-loader';
 import cns from 'classnames';
 import { APP_BASE_URL } from 'config/base-url';
 import Counter from './Counter';
-import About from './About';
+import User from './User';
 import NoMatch from './NoMatch';
 import style from './app.scss';
 
@@ -37,8 +37,8 @@ const Container = () => (
           component={Counter}
         />
         <Route
-          path="/about"
-          component={About}
+          path="/user"
+          component={User}
         />
         <Route component={NoMatch} />
       </Switch>
@@ -47,7 +47,7 @@ const Container = () => (
       <nav className={style.nav}>
         <ul>
           <NavItem to="/counter" label="Counter" />
-          <NavItem to="/about" label="About" />
+          <NavItem to="/user" label="User" />
         </ul>
       </nav>
     </footer>
