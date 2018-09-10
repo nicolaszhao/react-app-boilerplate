@@ -3,18 +3,16 @@ import { USER } from './urls';
 
 export default function mock() {
   Mock.setup({
-    timeout: '200-600'
+    timeout: '400-800'
   });
 
   Mock.mock(USER, {
-    'data|2': {
-      birth: '@date',
-      'age|10-60': 20,
-      title: '@title',
+    'status|-1-0': -1,
+    data: {
       name: '@name',
-      county: '@county',
-      city: '@city',
-      email: '@email'
-    }
+      email: '@email',
+      'age|10-60': 20
+    },
+    message: '@sentence'
   });
 }
