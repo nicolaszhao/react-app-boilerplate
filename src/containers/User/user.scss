@@ -1,0 +1,34 @@
+.header {
+  padding: 20px;
+
+  h2 {
+    font-size: 40px;
+  }
+}
+
+.content {
+  padding: 25px;
+
+  button {
+    margin: 0 5px;
+    padding: 15px 20px;
+    border: solid 1px rgba(0, 0, 0, .4); /* px */
+    border-radius: 4px; /* px */
+    background: rgba(0, 0, 0, .2);
+  }
+
+  dl {
+    dt {
+      display: block;
+      width: 200px;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    dd {
+      margin-bottom: 25px;
+      font-size: 40px;
+      color: #aaa;
+    }
+  }
+}
