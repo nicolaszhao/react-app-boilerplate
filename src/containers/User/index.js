@@ -2,12 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Loading } from 'react-tote-box';
 import { isEmpty } from 'lodash';
+import ErrorMessage from 'components/ErrorMessage';
 import { actions } from './reducers';
 import style from './user.scss';
-
-const ErrorMessage = ({ error }) => (
-  error ? <p style={{ color: '#f00' }}>{error.message}</p> : null
-);
 
 class User extends Component {
   handleFetchClick = () => {

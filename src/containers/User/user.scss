@@ -1,3 +1,5 @@
+@import "../../styles/colors";
+
 .header {
   padding: 20px;
 
@@ -14,7 +16,7 @@
     padding: 15px 20px;
     border: solid 1px rgba(0, 0, 0, .4); /* px */
     border-radius: 4px; /* px */
-    background: rgba(0, 0, 0, .2);
+    background: $highlight-color linear-gradient(hsla(0, 0%, 100%, .2), transparent)
   }
 
   dl {
