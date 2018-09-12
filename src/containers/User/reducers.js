@@ -34,7 +34,6 @@ const reducer = handleActions(
       throw(state, { payload }) {
         return {
           ...state,
-          data: {},
           error: payload
         };
       }
