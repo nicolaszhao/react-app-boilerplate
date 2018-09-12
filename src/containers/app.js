@@ -31,7 +31,7 @@ class Container extends Component {
     return (
       <div className={cns('container', style.container)}>
         <header className={style.header}>
-          <h1>React Redux (Ultimate)</h1>
+          <h1>React Boilerplate - Ultimate</h1>
         </header>
         <div className={style.content}>
           <Switch>
