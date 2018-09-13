@@ -47,7 +47,7 @@
     "style-loader": "^0.23.0",
     "uglifyjs-webpack-plugin": "^1.2.7",
     "url-loader": "^1.1.1",
-    "webpack": "^4.16.5",
+    "webpack": "^4.18.1",
     "webpack-cli": "^3.1.0",
     "webpack-config-zero": "^0.3.4",
     "webpack-dev-server": "^3.1.5",
