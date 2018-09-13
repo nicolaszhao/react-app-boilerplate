@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Modal from '../Modal';
+import { Modal } from 'react-tote-box';
 import style from './error-message.scss';
 
 class ErrorMessage extends Component {
@@ -26,7 +26,7 @@ class ErrorMessage extends Component {
       { visible } = this.state;
 
     return (
-      <Modal title="Error" visible={visible} onClose={this.handleClose}>
+      <Modal title="Error" visible={visible} onClose={this.handleClose} animation="fadeLeft">
         <h2 className={style.title}>Error message:</h2>
         <p className={style.content}>{error && error.message}</p>
       </Modal>
