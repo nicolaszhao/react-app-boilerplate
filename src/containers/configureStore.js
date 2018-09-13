@@ -23,11 +23,18 @@ export default (preloadedState) => {
     enhancer
   );
 
-  sagaMiddleware.run(rootSaga);
+  let sagaTask = sagaMiddleware.run(rootSaga);
 
   if (process.env.NODE_ENV !== 'production' && module.hot) {
-    module.hot.accept('./reducers.js', () => {
+    module.hot.accept('./reducers', () => {
       store.replaceReducer(rootReducer);
+    });
+
+    module.hot.accept('./sagas', () => {
+      sagaTask.cancel();
+      sagaTask.done.then(() => {
+        sagaTask = sagaMiddleware.run(rootSaga);
+      });
     });
   }
 
