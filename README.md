@@ -4,7 +4,7 @@
 
 ## 内置功能
 
-* [x] ES6 ~ ES8, ES Stage-0 语法和特性
+* [x] 支持 ES6 ~ ES8, 以及部分 ES Stage-3 语法和特性
 * [x] [sanitize.css](https://github.com/csstools/sanitize.css) - 面向移动开发的默认样式重置
 * [x] SASS + [CSS Modules](https://github.com/css-modules/css-modules)
 * [x] Redux + [Redux-Actions](https://redux-actions.js.org/) + [Redus-Saga](https://redux-saga-in-chinese.js.org/) - 应用数据管理
