@@ -10,6 +10,7 @@
 * [x] Redux + [Redux-Actions](https://redux-actions.js.org/) + [Redus-Saga](https://redux-saga-in-chinese.js.org/) - 应用数据管理
 * [x] React-Router v4+
 * [x] [axios](https://github.com/axios/axios) - 最流行的 Ajax 数据处理（内部使用 [tote-box](https://github.com/nicolaszhao/tote-box) 封装成 `axiosRequest`）
+* [x] [mockjs](http://mockjs.com/) - 开发环境智能 mock API 数据
 * [x] px2rem + flexible.js 修复版（之后会用 vw 版） ，参考 [postcss-px2rem](https://www.npmjs.com/package/postcss-px2rem), [px2rem](https://www.npmjs.com/package/px2rem)
 * [x] Autoprefixer
 * [x] [react-hot-loader](https://www.npmjs.com/package/react-hot-loader)
