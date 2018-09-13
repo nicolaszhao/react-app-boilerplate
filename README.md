@@ -1,6 +1,6 @@
-# React Redux Spa Boilerplate
+# {{{title}}}
 
-A React Single-page application boilerplate, and with Redux
+{{{description}}}
 
 ## 内置功能
 
@@ -60,28 +60,9 @@ npm run build
 
 ## 修改默认配置
 
-### 编译目标浏览器的代码
+### 编译转换目标浏览器的代码
 
-同时修改 `.babelrc` 和 `.browserslistrc`:
-
-```js
-"presets": [
-  [
-    "env",
-    {
-      "targets": {
-        "browsers": [
-        "> 1%",
-        "last 5 versions",
-        "ie 11"
-       ]
-      },
-      "modules": false,
-      "useBuiltIns": true
-    }
-  ]
-]
-```
+修改 `.browserslistrc`:
 
 ```shell
 # Browsers that we support
@@ -91,7 +72,7 @@ last 5 versions
 ie 11
 ```
 
-可参考：[babel-preset-env](https://babeljs.io/docs/en/babel-preset-env), [browserslist](https://github.com/ai/browserslist)
+可参考：[browserslist](https://github.com/ai/browserslist)
 
 ### 修改 px2rem 的初始值
 
