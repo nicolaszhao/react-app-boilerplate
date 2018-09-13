@@ -1,12 +1,21 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Redirect, NavLink, Switch } from 'react-router-dom';
 import { hot } from 'react-hot-loader';
+import Loadable from 'react-loadable';
+import { Loading } from 'react-tote-box';
 import cns from 'classnames';
 import { APP_BASE_URL } from 'config/base-url';
 import Counter from './Counter';
-import User from './User';
 import NoMatch from './NoMatch';
 import style from './app.scss';
+
+// for code splitting: https://github.com/jamiebuilds/react-loadable
+const User = Loadable({
+  loader: () => import('./User'),
+  loading(props) {
+    return props.pastDelay ? <Loading visible /> : null;
+  }
+});
 
 const NavItem = ({ label, to, activeOnlyWhenExact }) => (
   <li>
