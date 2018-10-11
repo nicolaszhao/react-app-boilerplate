@@ -11,17 +11,29 @@
 * [x] React-Router v4+
 * [x] [axios](https://github.com/axios/axios) - 最流行的 Ajax 数据处理（内部使用 [tote-box](https://github.com/nicolaszhao/tote-box) 封装成 `axiosRequest`）
 * [x] [mockjs](http://mockjs.com/) - 开发环境智能 mock API 数据
-* [x] px2rem + flexible.js 修复版（之后会用 vw 版） ，参考 [postcss-px2rem](https://www.npmjs.com/package/postcss-px2rem), [px2rem](https://www.npmjs.com/package/px2rem)
+* [x] px2rem + flexible.js 修复版（需单独启用，见底下的说明） ，参考 [postcss-px2rem](https://www.npmjs.com/package/postcss-px2rem), [px2rem](https://www.npmjs.com/package/px2rem)
 * [x] Autoprefixer
 * [x] [react-hot-loader](https://www.npmjs.com/package/react-hot-loader)
-* [x] webpack v4.0（已用 [webpack-config-zero](https://www.npmjs.com/package/webpack-config-zero) 封装成配置器）
+* [x] webpack v4.0+（已用 [webpack-config-zero](https://www.npmjs.com/package/webpack-config-zero) 封装成配置器）
 * [x] 代码提交 ESLint 自动审查
 
-## 使用
+### 其他已包含的主要模块
+
+* tote-box
+* react-tote-box
+* react-transition-group
+* react-loadable
+* [classnames](https://www.npmjs.com/package/classnames)
+* [mobile-detect](https://www.npmjs.com/package/mobile-detect)
+* [urijs](https://www.npmjs.com/package/urijs)
+* lodash
+
+## 快速上手
 
 ### 启动开发环境
 
 ```shell
+# http://localhost:3003/
 npm start
 ```
 
@@ -75,22 +87,61 @@ ie 11
 
 可参考：[browserslist](https://github.com/ai/browserslist)
 
-### 修改 px2rem 的初始值
+### 启用 `px2rem` + `flexible.js`
 
-```js
-const px2rem = require('postcss-px2rem');
+**除非项目元素复杂度和像素精准化要求较高，否则不建议开启该功能，根据以下原则可能更灵活：**
 
-module.exports = {
-  plugins: [
-    // ... other plugins
-    px2rem({
-      remUnit: 75
-    })
-  ]
-};
+- font-size 定义为 rem，相对 :root 做缩放
+
+- 边框等定义为 px，如有缩放要求请参照第 3 条原则
+
+- 其他属性定义为 em，相对于当前元素的 font-size
+
+
+修改 `postcss.config.js`:
+
+```diff
++ const px2rem = require('postcss-px2rem');
+
+  module.exports = {
+    plugins: [
+-     require('autoprefixer')
++     require('autoprefixer'),
++     px2rem({
++       remUnit: 75 // remUnit 根据设计稿情况设置
++     })
+    ]
+  };
 ```
 
-可参考：[postcss-px2rem](https://www.npmjs.com/package/postcss-px2rem) 文档
+修改 `src/containers/[PageName]/index.html`：
+
+```diff
+  <!DOCTYPE html>
+  <html lang="zh-Hans">
+
+  <head>
+    <meta charset="UTF-8">
+-   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+    <title>...</title>
++  	<script src="lib/flexible.min.js"></script>
+  </head>
+
+  ...
+
+  </html>
+
+```
+
+删除  `src/styles/base.scss` 中 `:root`  的基准字号：
+
+```diff
+- :root {
+-   font-size: 0.875em;
+- }
+```
+
+使用 px2rem 如何在 css 中定义元素尺寸请参考：[postcss-px2rem](https://www.npmjs.com/package/postcss-px2rem) 
 
 ### 修改 webpack.config.js 配置
 
