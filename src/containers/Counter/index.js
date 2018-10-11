@@ -21,16 +21,18 @@ class Counter extends Component {
       { counter, increment, decrement } = this.props;
 
     return (
-      <div className="container">
+      <div className={style.container}>
         <header className={style.header}>
           <h2>Counter</h2>
         </header>
         <section className={style.content}>
           <div className={style.control}>
             <input value={amount} onChange={this.handleAmountChange} />
-            <span className={style.amount}>{counter}</span>
             <button onClick={() => increment(amount)}>+</button>
             <button onClick={() => decrement(amount)}>-</button>
+          </div>
+          <div className={style.result}>
+            {counter}
           </div>
         </section>
       </div>

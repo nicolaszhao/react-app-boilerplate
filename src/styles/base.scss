@@ -2,16 +2,17 @@
 @import "~react-tote-box/dist/react-tote-box";
 @import "colors";
 
-html, body {
-  height: 99.9%;
+:root {
+
+  /* 14px */
+  font-size: 0.875em;
+
 }
 
 body {
-  overflow-x: hidden;
-  font-family: -apple-system, Segoe UI, Helvetica, sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', Helvetica, sans-serif;
   overflow-x: hidden;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  color: $primary-color;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -28,7 +29,7 @@ ul, ol {
   list-style: none;
 }
 
-dd {
+dl, dd {
   margin: 0;
 }
 
@@ -41,17 +42,7 @@ a {
 button {
   padding: 0;
   border: 0;
-  background: none;
   outline: none;
   user-select: none;
-}
-
-#app {
-  height: 100%;
-  font-size: 48px;
-}
-
-.container {
-  height: 100%;
-  position: relative;
+  background: none;
 }

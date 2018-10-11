@@ -1,42 +1,44 @@
 @import "../../styles/colors";
 
 .header {
-  padding: 20px;
+  margin-bottom: 0.9em;
 
   h2 {
-    font-size: 40px;
+    font-size: 1.35rem;
   }
 }
 
 .content {
-  padding: 25px;
+  padding: 0.5em;
 }
 
 .control {
   display: flex;
-  padding: 15px;
-  border: solid 1px rgba(0, 0, 0, .5); /* px */
+  padding: .8em;
+  border: solid 1px rgba(0, 0, 0, .4);
 
   input {
-    width: 120px;
-    padding: 10px;
-    border: solid 1px rgba(0, 0, 0, .2); /* px */
-    border-radius: 10px; /* px */
+    flex: 1;
+    margin-right: .3em;
+    padding: .8em;
+    border: solid 1px rgba(0, 0, 0, .2);
+    border-radius: .5em;
   }
 
   button {
-    width: 100px;
-    margin: 0 5px;
-    border: solid 1px rgba(0, 0, 0, .4); /* px */
-    border-radius: 4px; /* px */
+    width: 3em;
+    margin: 0 .3em;
+    border: solid 1px rgba(0, 0, 0, .4);
+    border-radius: .5em;
     background: rgba(0, 0, 0, .2);
   }
+}
 
-  .amount {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: $highlight-color;
-  }
+.result {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: .2em;
+  font-size: 8rem;
+  color: $highlight-color;
 }

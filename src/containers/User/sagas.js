@@ -6,7 +6,7 @@ function* fetchUser({ payload }) {
   yield put(actions.fetchUserStart());
 
   try {
-    const user = yield call(api.getUser, payload.userId);
+    const user = yield call(api.fetchUser, payload.userId);
 
     yield put(actions.fetchUserCompleted(user));
   } catch (err) {

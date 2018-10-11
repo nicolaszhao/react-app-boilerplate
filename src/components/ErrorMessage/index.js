@@ -27,7 +27,6 @@ class ErrorMessage extends Component {
 
     return (
       <Modal title="Error" visible={visible} onClose={this.handleClose} animation="fadeLeft">
-        <h2 className={style.title}>Error message:</h2>
         <p className={style.content}>{error && error.message}</p>
       </Modal>
     );

@@ -13,13 +13,15 @@ const req = request({
     return Promise.reject(new Error(data.message));
   },
   beautifyError(url, err) {
-    return new Error(`Request url ${url} error, message: ${err.message}`);
+    return new Error(`Request ${url} error, message: ${err.message}`);
   }
 });
 
-export function getUser() {
+export function fetchUser() {
   return req.get(USER);
 }
+
+export function noop() {}
 
 if (process.env.NODE_ENV !== 'production') {
   mock();  
