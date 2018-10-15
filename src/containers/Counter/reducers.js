@@ -4,7 +4,8 @@ const defaultState = { counter: 10 };
 
 export const actions = createActions({
   INCREMENT: (amount = 1) => ({ amount }),
-  DECREMENT: (amount = 1) => ({ amount: -amount })
+  DECREMENT: (amount = 1) => ({ amount: -amount }),
+  INCREMENT_ASYNC: () => ({})
 });
 
 const { increment, decrement } = actions;

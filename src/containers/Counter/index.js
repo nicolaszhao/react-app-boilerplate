@@ -18,7 +18,7 @@ class Counter extends Component {
 
   render() {
     const { amount } = this.state,
-      { counter, increment, decrement } = this.props;
+      { counter, increment, decrement, incrementAsync } = this.props;
 
     return (
       <div className={style.container}>
@@ -28,6 +28,7 @@ class Counter extends Component {
         <section className={style.content}>
           <div className={style.control}>
             <input value={amount} onChange={this.handleAmountChange} />
+            <button onClick={() => incrementAsync()}>Async</button>
             <button onClick={() => increment(amount)}>+</button>
             <button onClick={() => decrement(amount)}>-</button>
           </div>
@@ -42,6 +43,7 @@ class Counter extends Component {
 
 const mapStateToProps = ({ counter }) => ({ counter: counter.counter });
 const mapDispatchToProps = dispatch => ({
+  incrementAsync: () => dispatch(actions.incrementAsync()),
   increment: amount => dispatch(actions.increment(amount)),
   decrement: amount => dispatch(actions.decrement(amount))
 });
