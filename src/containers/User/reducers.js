@@ -1,4 +1,4 @@
-import { createActions, handleActions, combineActions } from 'redux-actions';
+import { createActions, handleActions } from 'redux-actions';
 
 const defaultState = {
   fetching: false,
@@ -7,17 +7,15 @@ const defaultState = {
 };
 
 export const actions = createActions({
-  FETCH_USER: (userId) => ({ userId }),
-  FETCH_USER_START: () => ({ fetching: true }),
-  FETCH_USER_END: () => ({ fetching: false }),
+  FETCH_USER: (userId) => ({ userId, fetching: true }),
   FETCH_USER_COMPLETED: data => data
 });
 
-const { fetchUserStart, fetchUserEnd, fetchUserCompleted } = actions;
+const { fetchUser, fetchUserCompleted } = actions;
 
 const reducer = handleActions(
   {
-    [combineActions(fetchUserStart, fetchUserEnd)]: (state, { payload }) => {
+    [fetchUser]: (state, { payload }) => {
       return {
         ...state,
         ...payload
@@ -27,6 +25,7 @@ const reducer = handleActions(
       next(state, { payload }) {
         return {
           ...state,
+          fetching: false,
           data: payload,
           error: null
         };
@@ -34,6 +33,7 @@ const reducer = handleActions(
       throw(state, { payload }) {
         return {
           ...state,
+          fetching: false,
           error: payload
         };
       }

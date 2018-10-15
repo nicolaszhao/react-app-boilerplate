@@ -3,8 +3,6 @@ import * as api from '../../api';
 import { actions } from './reducers';
 
 export function* fetchUser({ payload }) {
-  yield put(actions.fetchUserStart());
-
   try {
     const user = yield call(api.fetchUser, payload.userId);
 
@@ -12,8 +10,6 @@ export function* fetchUser({ payload }) {
   } catch (err) {
     yield put(actions.fetchUserCompleted(err));
   }
-
-  yield put(actions.fetchUserEnd());
 }
 
 export default function* watchUser() {

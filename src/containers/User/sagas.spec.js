@@ -10,10 +10,6 @@ describe('#User saga.js', () => {
     const gen = fetchUser({ payload });
     const user = {};
 
-    it('fetchUser Saga should yield an Effect put({ type: "FETCH_USER_START" })', () => {
-      expect(gen.next().value).to.deep.equal(put(actions.fetchUserStart()));
-    });
-
     it(`fetchUser Saga should yeild an Effect call(api.fetchUser, ${payload.userId})`, () => {
       expect(gen.next().value).to.deep.equal(call(api.fetchUser, payload.userId));
     });
@@ -29,10 +25,6 @@ describe('#User saga.js', () => {
     const payload = { userId: 456 };
     const gen = fetchUser({ payload });
     const error = new Error('Error!');
-
-    it('fetchUser Saga should yield an Effect put({ type: "FETCH_USER_START" })', () => {
-      expect(gen.next().value).to.deep.equal(put(actions.fetchUserStart()));
-    });
 
     it(`fetchUser Saga should yeild an Effect call(api.fetchUser, ${payload.userId})`, () => {
       expect(gen.next().value).to.deep.equal(call(api.fetchUser, payload.userId));

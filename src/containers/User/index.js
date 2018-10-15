@@ -8,7 +8,7 @@ import style from './user.scss';
 
 class User extends Component {
   handleFetchClick = () => {
-    this.props.fetchUser();
+    this.props.fetchUser(Math.ceil(Math.random() * 100));
   }
 
   render() {
