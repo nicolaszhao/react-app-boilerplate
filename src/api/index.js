@@ -1,6 +1,7 @@
 import { axiosRequest as request } from 'tote-box';
 import { USER } from './urls';
-import mock from './mock';
+
+// import mock from './mock';
 
 const req = request({
   timeout: 5000
@@ -24,5 +25,6 @@ export function fetchUser() {
 export function noop() {}
 
 if (process.env.NODE_ENV !== 'production') {
-  mock();  
+  
+  // mock();  
 }
