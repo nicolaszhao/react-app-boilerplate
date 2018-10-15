@@ -1,8 +1,8 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
-import * as api from 'api';
+import * as api from '../../api';
 import { actions } from './reducers';
 
-function* fetchUser({ payload }) {
+export function* fetchUser({ payload }) {
   yield put(actions.fetchUserStart());
 
   try {
