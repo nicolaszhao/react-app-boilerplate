@@ -1,4 +1,4 @@
-const report = (data) => {};
+const report = (data) => data;
 
 let reporter = {
   test() {
