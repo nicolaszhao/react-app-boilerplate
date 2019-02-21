@@ -1,21 +1,16 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Redirect, NavLink, Switch } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { 
+  BrowserRouter as Router, Route, Redirect, NavLink, Switch 
+} from 'react-router-dom';
 import { hot } from 'react-hot-loader';
-import Loadable from 'react-loadable';
 import { Loading } from 'react-tote-box';
 import cns from 'classnames';
 import { APP_BASE_URL } from 'config/base-url';
-import Counter from './Counter';
 import NoMatch from './NoMatch';
 import style from './app.scss';
 
-// for code splitting: https://github.com/jamiebuilds/react-loadable
-const User = Loadable({
-  loader: () => import('./User'),
-  loading(props) {
-    return props.pastDelay ? <Loading visible /> : null;
-  }
-});
+const User = React.lazy(() => import('./User'));
+const Counter = React.lazy(() => import('./Counter'));
 
 const NavItem = ({ label, to, activeOnlyWhenExact }) => (
   <li>
@@ -29,49 +24,44 @@ const NavItem = ({ label, to, activeOnlyWhenExact }) => (
   </li>
 );
 
-class Container extends Component {
-  componentDidMount() {
+const Container = () => {
+  useEffect(() => {
+    const handleDocumentTouchstart = () => {};
 
     // for element:active
-    document.body.addEventListener('touchstart', () => {});
-  }
+    document.body.addEventListener('touchstart', handleDocumentTouchstart);
 
-  render() {
-    return (
-      <div className={cns('container', style.container)}>
-        <header className={style.header}>
-          <h1>React Boilerplate - Ultimate</h1>
-        </header>
-        <div className={style.content}>
+    return () => {
+      document.body.removeEventListener('touchstart', handleDocumentTouchstart);
+    };
+  }, []);
+
+  return (
+    <div className={cns('container', style.container)}>
+      <header className={style.header}>
+        <h1>React Boilerplate - Ultimate</h1>
+      </header>
+      <div className={style.content}>
+        <React.Suspense fallback={<Loading visible />}>
           <Switch>
-            <Redirect
-              from="/"
-              to="/counter"
-              exact
-            />
-            <Route
-              path="/counter"
-              component={Counter}
-            />
-            <Route
-              path="/user"
-              component={User}
-            />
+            <Redirect from="/" to="/counter" exact />
+            <Route path="/counter" component={Counter} />
+            <Route path="/user" component={User} />
             <Route component={NoMatch} />
           </Switch>
-        </div>
-        <footer className={style.footer}>
-          <nav className={style.nav}>
-            <ul>
-              <NavItem to="/counter" label="Counter" />
-              <NavItem to="/user" label="User" />
-            </ul>
-          </nav>
-        </footer>
+        </React.Suspense>
       </div>
-    );
-  }
-} 
+      <footer className={style.footer}>
+        <nav className={style.nav}>
+          <ul>
+            <NavItem to="/counter" label="Counter" />
+            <NavItem to="/user" label="User" />
+          </ul>
+        </nav>
+      </footer>
+    </div>
+  );
+}; 
 
 const App = () => (
   <Router basename={APP_BASE_URL}>
