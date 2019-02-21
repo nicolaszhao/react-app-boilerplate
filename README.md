@@ -8,7 +8,7 @@
 * [x] [sanitize.css](https://github.com/csstools/sanitize.css) - 面向移动开发的默认样式重置
 * [x] SASS + [CSS Modules](https://github.com/css-modules/css-modules)
 * [x] Redux + [Redux-Actions](https://redux-actions.js.org/) + [Redus-Saga](https://redux-saga-in-chinese.js.org/) - 应用数据管理
-* [x] React-Router v4+
+* [x] React-Router v4.3+
 * [x] [axios](https://github.com/axios/axios) - 最流行的 Ajax 数据处理（内部使用 [tote-box](https://github.com/nicolaszhao/tote-box) 封装成 `axiosRequest`）
 * [x] [mockjs](http://mockjs.com/) - 开发环境智能 mock API 数据
 * [x] px2rem + flexible.js 修复版（需单独启用，[见底下的说明](#启用-px2rem--flexiblejs)） ，参考 [postcss-px2rem](https://www.npmjs.com/package/postcss-px2rem), [px2rem](https://www.npmjs.com/package/px2rem)
@@ -22,7 +22,6 @@
 * tote-box
 * react-tote-box
 * react-transition-group
-* react-loadable
 * [classnames](https://www.npmjs.com/package/classnames)
 * [mobile-detect](https://www.npmjs.com/package/mobile-detect)
 * [urijs](https://www.npmjs.com/package/urijs)
