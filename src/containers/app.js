@@ -7,6 +7,7 @@ import { Loading } from 'react-tote-box';
 import cns from 'classnames';
 import { APP_BASE_URL } from 'config/base-url';
 import NoMatch from './NoMatch';
+import RootContext from 'components/Contexts/RootContext';
 import style from './app.scss';
 
 const User = React.lazy(() => import('./User'));
@@ -37,29 +38,31 @@ const Container = () => {
   }, []);
 
   return (
-    <div className={cns('container', style.container)}>
-      <header className={style.header}>
-        <h1>React Boilerplate - Ultimate</h1>
-      </header>
-      <div className={style.content}>
-        <React.Suspense fallback={<Loading visible />}>
-          <Switch>
-            <Redirect from="/" to="/counter" exact />
-            <Route path="/counter" component={Counter} />
-            <Route path="/user" component={User} />
-            <Route component={NoMatch} />
-          </Switch>
-        </React.Suspense>
+    <RootContext.Provider value={{ author: 'Nicolas' }}>
+      <div className={cns('container', style.container)}>
+        <header className={style.header}>
+          <h1>React Boilerplate - Ultimate</h1>
+        </header>
+        <div className={style.content}>
+          <React.Suspense fallback={<Loading visible />}>
+            <Switch>
+              <Redirect from="/" to="/counter" exact />
+              <Route path="/counter" component={Counter} />
+              <Route path="/user" component={User} />
+              <Route component={NoMatch} />
+            </Switch>
+          </React.Suspense>
+        </div>
+        <footer className={style.footer}>
+          <nav className={style.nav}>
+            <ul>
+              <NavItem to="/counter" label="Counter" />
+              <NavItem to="/user" label="User" />
+            </ul>
+          </nav>
+        </footer>
       </div>
-      <footer className={style.footer}>
-        <nav className={style.nav}>
-          <ul>
-            <NavItem to="/counter" label="Counter" />
-            <NavItem to="/user" label="User" />
-          </ul>
-        </nav>
-      </footer>
-    </div>
+    </RootContext.Provider>
   );
 }; 
 

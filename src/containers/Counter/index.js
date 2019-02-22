@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { connect } from 'react-redux';
 import { actions } from './reducers';
+import RootContext from 'components/Contexts/RootContext';
 import style from './counter.scss';
 
 const Counter = ({ 
@@ -10,11 +11,12 @@ const Counter = ({
   incrementAsync 
 }) => {
   const [amount, setAmount] = useState(1);
+  const context = useContext(RootContext);
 
   return (
     <div className={style.container}>
       <header className={style.header}>
-        <h2>Counter</h2>
+        <h2>Counter / Author: {context.author}</h2>
       </header>
       <section className={style.content}>
         <div className={style.control}>
