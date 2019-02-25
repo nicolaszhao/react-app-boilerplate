@@ -13,6 +13,12 @@ const Counter = ({
   const [amount, setAmount] = useState(1);
   const context = useContext(RootContext);
 
+  if (counter > 11) {
+
+    // test for Error Boundaries
+    throw new Error('Counter crashed!');
+  }
+
   return (
     <div className={style.container}>
       <header className={style.header}>
