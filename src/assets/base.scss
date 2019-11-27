@@ -1,6 +1,4 @@
-@import "~sanitize.css/sanitize.css";
-@import "~react-tote-box/dist/react-tote-box";
-@import "colors";
+@import "sanitize.css";
 
 :root {
 
@@ -36,7 +34,7 @@ dl, dd {
 a {
   text-decoration: none;
   outline: none;
-  color: $highlight-color;
+  color: #0cf;
 }
 
 button {
