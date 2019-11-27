@@ -6,7 +6,7 @@ export function RootContextConsumer(Component) {
   return function Wrapper(props) {
     return (
       <RootContext.Consumer>
-        {store => <Component {...props} store={store} />}
+        {(store) => <Component {...props} store={store} />}
       </RootContext.Consumer>
     );
   };

@@ -10,16 +10,19 @@ class ErrorBoundary extends Component {
     return { hasError: true };
   }
 
-  componentDidCatch(error, info) {
-    console.log('App error!', error, info);
+  componentDidCatch(error, errorInfo) {
+    console.log('App error!', error, errorInfo);
   }
 
   render() {
-    if (this.state.hasError) {
-      return <h2>App Error!</h2>;
+    const { hasError } = this.state;
+    const { children } = this.props;
+
+    if (hasError) {
+      return <h1>App Error!</h1>;
     }
 
-    return this.props.children;
+    return children;
   }
 }
 
