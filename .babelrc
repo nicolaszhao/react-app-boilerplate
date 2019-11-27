@@ -1,39 +1,5 @@
 {
-  "env": {
-    "production": {
-      "presets": [
-        [
-          "@babel/preset-env",
-          {
-            "modules": false,
-            "useBuiltIns": "entry"
-          }
-        ],
-        "@babel/preset-react"
-      ],
-      "plugins": [
-        ["@babel/plugin-transform-runtime", {
-          "useESModules": true
-        }],
-        ["@babel/plugin-proposal-class-properties", { 
-          "loose": false 
-        }],
-        "@babel/plugin-syntax-dynamic-import",
-        "react-hot-loader/babel",
-        "lodash"
-      ]
-    },
-    "test": {
-      "presets": [
-        "@babel/preset-env"
-      ],
-      "plugins": [
-        "@babel/plugin-transform-runtime",
-        ["@babel/plugin-proposal-class-properties", { 
-          "loose": false 
-        }],
-        "lodash"
-      ]
-    }
-  }
+  "presets": [
+    ["@hammal/babel-preset-app", { "react": true }]
+  ]
 }
