@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { actions as userActions } from '../../store/reducers/user';
 import { actions as counterActions } from '../../store/reducers/counter';
 import RootContext from '../../components/Contexts/RootContext';
-import style from './home.module.scss';
+import style from './index.module.scss';
 
 const genUserId = () => Math.ceil(Math.random() * 100);
 
