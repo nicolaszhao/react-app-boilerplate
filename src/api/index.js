@@ -5,7 +5,9 @@ import { URLS } from './constants';
 // TODO: 调整为真实接口后需要删除 import 和 mock()
 import mock from './mock';
 
-mock();
+if (process.env.NODE_ENV === 'development') {
+  mock();
+}
 
 const ajax = Ajax({
   timeout: 5000,
