@@ -34,31 +34,44 @@ const Home = ({
       <section className={style.profile}>
         <h3>User Profile</h3>
         {fetching && <div className="loading">Loading...</div>}
-        {error && (
-          <p className={style.error}>
-            {error.message}
-          </p>
-        )}
         <dl>
           {Object.keys(user).map((field) => (
             <React.Fragment key={field}>
-              <dt>{field}</dt>
+              <dt>
+                {field}
+                :
+              </dt>
               <dd>{user[field]}</dd>
             </React.Fragment>
           ))}
         </dl>
-        <button
-          type="button"
-          className="button"
-          onClick={() => setUserId(genUserId())}
-        >
-          Refresh
-        </button>
+        {error && (
+          <p className={style.error}>
+            <strong>Error:</strong>
+            {error.message}
+          </p>
+        )}
+        <footer className={style['profile-footer']}>
+          <button
+            type="button"
+            className="button"
+            onClick={() => setUserId(genUserId())}
+          >
+            Refresh
+          </button>
+        </footer>
       </section>
       <section className={style.counter}>
         <h3>Counter</h3>
         <div className={style['counter-controls']}>
-          <input value={amount} onChange={({ target }) => setAmount(+target.value)} />
+          <label>
+            Amount:
+          </label>
+          <input
+            className="input"
+            value={amount}
+            onChange={({ target }) => setAmount(+target.value)}
+          />
           <button
             type="button"
             className="button"
@@ -83,10 +96,10 @@ const Home = ({
           </button>
         </div>
       </section>
-      <footer>
+      <footer className={style.footer}>
         <p>
           by
-          {author}
+          <span className={style.author}>{author}</span>
         </p>
       </footer>
     </div>
