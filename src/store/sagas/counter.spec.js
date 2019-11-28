@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import { delay } from 'redux-saga';
 import { call } from 'redux-saga/effects';
-import { incrementAsync } from './sagas';
+import { incrementAsync } from './counter';
 
 describe('#Counter saga.js', () => {
   describe('#incrementAsync()', () => {

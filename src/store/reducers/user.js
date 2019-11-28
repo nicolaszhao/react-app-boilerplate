@@ -3,43 +3,41 @@ import { createActions, handleActions } from 'redux-actions';
 const defaultState = {
   fetching: false,
   data: {},
-  error: null
+  error: null,
 };
 
 export const actions = createActions({
   FETCH_USER: (userId) => ({ userId, fetching: true }),
-  FETCH_USER_COMPLETED: data => data
+  FETCH_USER_COMPLETED: (data) => data,
 });
 
 const { fetchUser, fetchUserCompleted } = actions;
 
 const reducer = handleActions(
   {
-    [fetchUser]: (state, { payload }) => {
-      return {
-        ...state,
-        ...payload
-      };
-    },
+    [fetchUser]: (state, { payload }) => ({
+      ...state,
+      ...payload,
+    }),
     [fetchUserCompleted]: {
       next(state, { payload }) {
         return {
           ...state,
           fetching: false,
           data: payload,
-          error: null
+          error: null,
         };
       },
       throw(state, { payload }) {
         return {
           ...state,
           fetching: false,
-          error: payload
+          error: payload,
         };
-      }
-    }
+      },
+    },
   },
-  defaultState
+  defaultState,
 );
 
 export default reducer;

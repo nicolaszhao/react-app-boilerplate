@@ -7,20 +7,19 @@ export default (preloadedState) => {
   const sagaMiddleware = createSagaMiddleware();
   const middlewares = [sagaMiddleware];
 
-  const composeEnhancers = process.env.NODE_ENV !== 'production' && 
-
+  /* eslint-disable no-underscore-dangle */
+  const composeEnhancers = (process.env.NODE_ENV !== 'production'
     // for universal ("isomorphic") apps
-    typeof window !== 'undefined' && 
-
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ? 
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : compose;
-
-  const enhancer = composeEnhancers(applyMiddleware(...middlewares));
+    && typeof window !== 'undefined'
+    && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__)
+    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+    : compose;
+  /* eslint-enable */
 
   const store = createStore(
-    rootReducer, 
+    rootReducer,
     preloadedState,
-    enhancer
+    composeEnhancers(applyMiddleware(...middlewares)),
   );
 
   let sagaTask = sagaMiddleware.run(rootSaga);

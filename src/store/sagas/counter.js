@@ -1,6 +1,6 @@
 import { delay } from 'redux-saga';
 import { call, put, takeLatest } from 'redux-saga/effects';
-import { actions } from './reducers';
+import { actions } from '../reducers/counter';
 
 export function* incrementAsync({ payload }) {
   yield call(delay, 1000);

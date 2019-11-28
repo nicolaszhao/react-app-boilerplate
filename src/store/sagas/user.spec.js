@@ -1,8 +1,8 @@
 import { expect } from 'chai';
 import { call, put } from 'redux-saga/effects';
 import * as api from '../../api';
-import { actions } from './reducers';
-import { fetchUser } from './sagas';
+import { actions } from '../reducers/user';
+import { fetchUser } from './user';
 
 describe('#User saga.js', () => {
   describe('#fetchUser() success', () => {
@@ -15,7 +15,7 @@ describe('#User saga.js', () => {
     });
 
     it(
-      `fetchUser Saga should yield an Effect put({ type: "FETCH_USER_COMPLETED", payload: ${JSON.stringify(user)} })`, 
+      `fetchUser Saga should yield an Effect put({ type: "FETCH_USER_COMPLETED", payload: ${JSON.stringify(user)} })`,
       () => {
         expect(gen.next(user).value).to.deep.equal(put(actions.fetchUserCompleted(user)));
       });

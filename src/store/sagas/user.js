@@ -1,6 +1,6 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 import * as api from '../../api';
-import { actions } from './reducers';
+import { actions } from '../reducers/user';
 
 export function* fetchUser({ payload }) {
   try {
